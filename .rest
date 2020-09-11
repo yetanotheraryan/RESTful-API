@@ -16,4 +16,12 @@ Content-Type: application/json
 
 ###
 
+PATCH  http://localhost:5000/subscribers/5f5bb7f0f23cfd3b1c4384b7 
+Content-Type: application/json
+
+{
+    "name": "new name"
+}
+###
+
 DELETE http://localhost:5000/subscribers/5f5bb38c839902423c654ffc 
