@@ -38,8 +38,13 @@ router.patch('/:id', (req, res)=>{
 
 });
 // deleting one
-router.delete('/:id', (req, res)=>{
-
+router.delete('/:id', getSubscriber, async(req, res)=>{
+    try{
+        await res.subscriber.remove()
+        res.json({message: "Deleted Successfully"})
+    }catch(err){
+        res.status(500).json({message: err.message})
+    }
 });
 
 // middleware

@@ -10,6 +10,10 @@ POST http://localhost:5000/subscribers
 Content-Type: application/json
 
 {
-    "name":"Aryan Tiwari",
+    "name":"Stranger i guess",
     "subscribedToChannel": "Whatevrrr"
 }
+
+###
+
+DELETE http://localhost:5000/subscribers/5f5bb38c839902423c654ffc 
