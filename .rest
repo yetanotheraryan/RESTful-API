@@ -1,1 +1,15 @@
 GET http://localhost:5000/subscribers
+
+###
+
+GET http://localhost:5000/subscribers/12
+
+###
+
+POST http://localhost:5000/subscribers
+Content-Type: application/json
+
+{
+    "name":"Aryan",
+    "subscribedToChannel": "Whatevrrr"
+}
