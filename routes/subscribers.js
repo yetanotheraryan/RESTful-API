@@ -1,4 +1,5 @@
 const express = require("express")
+const subscriber = require("../models/subscriber")
 const router = express.Router()
 const Subscriber = require('../models/subscriber')
 // getting all
@@ -10,11 +11,13 @@ router.get('/', async(req, res)=>{
         res.status(500).json({message: err.message})
     }
 })
+
+
 // getting one
 
 // :id, means inside the callback the id using req.params.id
-router.get('/:id', (req, res)=>{
-    res.send(req.params.id);
+router.get('/:id', getSubscriber, (req, res)=>{
+    res.json(res.subscriber)
 })
 
 // create route 
@@ -33,10 +36,26 @@ router.post('/', async(req, res)=>{
 // updating one
 router.patch('/:id', (req, res)=>{
 
-})
+});
 // deleting one
 router.delete('/:id', (req, res)=>{
 
-})
+});
+
+// middleware
+async function getSubscriber(req, res, next){
+    let subscriber
+    try{
+        subscriber = await Subscriber.findById(req.params.id)
+        if(subscriber == null){
+            return res.status(404).json({message: 'cannot find subscriber.'})
+        }
+    } catch(err){
+        return res.status(500).json({message: err.message})
+    }
+    // below LOC ensures that we can use res.subscriber would contain the required subscriber.
+    res.subscriber = subscriber
+    next()
+}
 
 module.exports = router

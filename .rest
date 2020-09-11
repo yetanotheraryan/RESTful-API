@@ -2,7 +2,7 @@ GET http://localhost:5000/subscribers
 
 ###
 
-GET http://localhost:5000/subscribers/12
+GET http://localhost:5000/subscribers/5f5bb31a839902423c654ffa
 
 ###
 
@@ -10,6 +10,6 @@ POST http://localhost:5000/subscribers
 Content-Type: application/json
 
 {
-    "name":"Aryan",
+    "name":"Aryan Tiwari",
     "subscribedToChannel": "Whatevrrr"
 }
